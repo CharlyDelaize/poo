@@ -2,34 +2,45 @@
 
 
 class Femme{
+    private $prenom;
+    private $nom;
+    private $age;
     private $epoux;
 
     function chargerClasse($classe) {
         require "Homme.php";
     }
 
-    public function estCelibataire($epoux){
-        if($epoux !== null){
-            echo $epoux;
-        }else{
-            echo "Célibataire";
-        }
+    public function __construct($epoux){
+        $this->setEpoux($epoux);
     }
 
     public function setEpoux($epoux){
         $this->epoux = $epoux;
     }
 
-    public function marier($epouse){
-        echo "Je vous déclare mari et femme";
+    public function estCelibataire(){
+        if(empty($epoux)){
+            $prenom = "Meghan";
+            $nom = "Markle";
+            $age = 39;
+            echo "{$prenom} {$nom} a {$age} ans et est marié à {$this->epoux} <br>";
+        }else{
+            echo "Célibataire";
+        }
     }
 
-    public function afficher(){
-        echo "information";
+    public function marier(){
+        $prenom = "Meghan";
+            $nom = "Markle";
+            $age = 39;
+        echo "{$prenom} {$nom} Je vous déclare mari et femme";
+    }
+
+    public function afficher($epoux){
+        echo $epoux;
     }
 
 }
-$test = new Femme($epoux = "Harry");
-echo $epoux;
 
 ?>

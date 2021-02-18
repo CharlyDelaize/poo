@@ -54,7 +54,7 @@ abstract class Personne{
 }
 
 final class Homme extends Personne{
-    private $epouse;
+    /* private $epouse;
     private $prenom = "Harry";
     private $nom = "Prince";
     private $age = 36;
@@ -69,12 +69,22 @@ final class Homme extends Personne{
         }else{
             echo "Célibataire";
         }
+    } */
+    public function estCelibataire() {
+        echo "{$this->prenom} {$this->nom} a {$this->age} ans ";
+        if(!empty($this->epouse)) {
+            echo "et est marié à {$this->epouse}";
+             $this->epouse->estCelibataire(); // Appelle la méthode display() issue de la classe 'Chien'
+        } else {
+            echo "et est célibataire";
+        }
+      }
     }
 
 }
 
 final class Femme extends Personne{
-    private $epoux;
+    /* private $epoux;
     private $prenom = "Meghan";
     private $nom = "Markle";
     private $age = 39;
@@ -89,6 +99,16 @@ final class Femme extends Personne{
         }else{
             echo "Célibataire";
         }
+    } */
+    public function estCelibataire() {
+        echo "{$this->firstname} {$this->lastname} a {$this->age} ans ";
+        if(!empty($this->dog)) {
+             echo "et un chien : ";
+             $this->dog->estCelibataire(); // Appelle la méthode display() issue de la classe 'Chien'
+        } else {
+            echo "et pas de chien...<br>";
+        }
+      }
     }
 
 }
